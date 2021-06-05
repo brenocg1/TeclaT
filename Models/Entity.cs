@@ -10,5 +10,8 @@ namespace TeclaT.Models
     {
         [Key]
         public long Id { get; set; }
+
+        [Required(ErrorMessage = "This field is required")]
+        public string Name { get; set; }
     }
 }

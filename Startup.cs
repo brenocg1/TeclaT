@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using TeclaT.Data;
+using TeclaT.Repository;
+using TeclaT.Repository.Interfaces;
 
 namespace TeclaT
 {
@@ -28,6 +30,11 @@ namespace TeclaT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<DataContext, DataContext>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddControllers();
             services.AddDbContext<DataContext>(options =>

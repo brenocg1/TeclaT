@@ -19,8 +19,8 @@ namespace TeclaT.Data
 
             var categories = new Category[]
             {
-                new Category { Id = 1, Title = "Computers" },
-                new Category { Id = 2, Title = "Hardware" },
+                new Category { Name = "Computers" },
+                new Category { Name = "Hardware" },
             };
 
             foreach (var item in categories)
@@ -28,12 +28,14 @@ namespace TeclaT.Data
                 context.Categories.Add(item);
             }
 
+            context.SaveChanges();
+
             var subCategories = new SubCategory[]
             {
-                new SubCategory { Id = 1, Title = "Inspiron", CategoryId = 1},
-                new SubCategory { Id = 2, Title = "Vostro", CategoryId = 1 },
-                new SubCategory { Id = 3, Title = "SDD", CategoryId = 2 },
-                new SubCategory { Id = 3, Title = "POWER SUPPLY", CategoryId = 2 },
+                new SubCategory { Name = "Inspiron", CategoryId = 1},
+                new SubCategory { Name = "Vostro", CategoryId = 1 },
+                new SubCategory { Name = "SDD", CategoryId = 2 },
+                new SubCategory { Name = "POWER SUPPLY", CategoryId = 2 },
             };
 
             foreach (var item in subCategories)
@@ -41,18 +43,20 @@ namespace TeclaT.Data
                 context.SubCategories.Add(item);
             }
 
+            context.SaveChanges();
+
             var products = new Product[]
             {
-                new Product { Id = 1, Name = "Dell Inspiron 15' i5", Description = "Notebook for study and a low level gaming, with i5",
+                new Product { Name = "Dell Inspiron 15' i5", Description = "Notebook for study and a low level gaming, with i5",
                 Price = 1599.99, SKUCode = "555-5555", SubCategoryId = 1 },
 
-                new Product { Id = 1, Name = "Dell Vostro 17' i7", Description = "Notebook for working and high performance",
+                new Product { Name = "Dell Vostro 17' i7", Description = "Notebook for working and high performance",
                 Price = 2599.99, SKUCode = "777-7777", SubCategoryId = 2},
 
-                new Product { Id = 1, Name = "HD TOSHIBA", Description = "hard disk disk",
+                new Product { Name = "HD TOSHIBA", Description = "hard disk disk",
                 Price = 99.99, SKUCode = "111-1111", SubCategoryId = 3},
 
-                new Product { Id = 1, Name = "SSD KINGSTON", Description = "solid state drive",
+                new Product { Name = "SSD KINGSTON", Description = "solid state drive",
                 Price = 199.99, SKUCode = "222-2222", SubCategoryId = 4},
             };
 
@@ -61,7 +65,7 @@ namespace TeclaT.Data
                 context.Products.Add(item);
             }
 
-            _ = context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

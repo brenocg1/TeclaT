@@ -8,8 +8,6 @@ namespace TeclaT.Models
 {
     public class Product : Entity
     {
-        [Required(ErrorMessage = "This field is required")]
-        public string Name { get; set; }
         
         [Required(ErrorMessage = "This field is required")]
         public string SKUCode { get; set; }
