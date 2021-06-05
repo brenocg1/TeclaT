@@ -26,20 +26,20 @@ namespace TeclaT.Repository
         public async Task<T> GetById(long id)
             => await _context.Set<T>().FindAsync(id);
 
-        public async virtual void Delete(T entity)
+        public async virtual Task Delete(T entity)
         {
             _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async virtual void DeleteById(long id)
+        public async virtual Task DeleteById(long id)
         {
             var entity = await _context.Set<T>().FindAsync(id);
             _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async virtual void Save(T entity)
+        public async virtual Task Save(T entity)
         {
             _context.Add(entity);
             await _context.SaveChangesAsync();
@@ -48,7 +48,7 @@ namespace TeclaT.Repository
         public async Task<List<T>> GetAllAsync()
             => await _dbSet.ToListAsync();
 
-        public async virtual void Update(T entity)
+        public async virtual Task Update(T entity)
         {
             _context.Update<T>(entity);
             _context.Entry(entity).State = EntityState.Modified;
