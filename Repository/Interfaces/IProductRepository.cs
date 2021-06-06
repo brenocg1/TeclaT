@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TeclaT.Models;
+using TeclaT.ViewModels;
 
 namespace TeclaT.Repository.Interfaces
 {
-    interface IProductRepository : IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
+        Task<List<VW_PRODUCTS>> GetAllAsyncProjected();
     }
 }
