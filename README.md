@@ -6,7 +6,7 @@ Projeto Desafio da Tecla T
 Rode no projeto Tecla T, não com o IIS Express
 
 ## O que você precisa para rodar
-- Visual Studio Community, você pode baixar em https://visualstudio.microsoft.com/pt-br/
+- Visual Studio Community com .Net 5, você pode baixar em https://visualstudio.microsoft.com/pt-br/
 - SQL Server
 
 ## Criando banco
