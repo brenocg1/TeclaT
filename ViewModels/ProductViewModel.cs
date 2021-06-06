@@ -14,5 +14,7 @@ namespace TeclaT.ViewModels
         public double Price { get; set; }
         public string SubCategoryName { get; set; }
         public string CategoryName { get; set; }
+        public long CategoryId { get; set; }
+        public long SubCategoryId { get; set; }
     }
 }

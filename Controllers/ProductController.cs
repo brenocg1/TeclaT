@@ -29,6 +29,10 @@ namespace TeclaT.Controllers
         public IActionResult SearchByName(string name)
             => Ok(_productRepository.SearchByName(name));
 
+        [HttpPut("search/product")]
+        public IActionResult Search([FromBody] SearchProductRequest request)
+            => Ok(_productRepository.SearchProduct(request));
+
         [HttpPost("create")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request)
         {
