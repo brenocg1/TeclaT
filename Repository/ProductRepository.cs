@@ -23,7 +23,7 @@ namespace TeclaT.Repository
 
         public List<ProductViewModel> SearchProduct(SearchProductRequest request)
         {
-            var query = _context.Set<Product>().Where(x => x.Id == x.Id);
+            var query = _context.Set<Product>().AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request.Name))
             {
@@ -63,10 +63,12 @@ namespace TeclaT.Repository
             {
                 var entity = new ProductViewModel();
                 entity.Id = item.Id;
+                entity.Name = item.Name;
+                entity.Price = item.Price;
                 entity.Description = item.Description;
-                entity.SKU = item.SKUCode;
-                entity.SubCategoryName = item.SubCategory.Name;
-                entity.CategoryName = item.SubCategory.Category.Name;
+                entity.SKUCode = item.SKUCode;
+                entity.SubCategory = item.SubCategory.Name;
+                entity.Category = item.SubCategory.Category.Name;
                 entity.CategoryId = item.SubCategory.CategoryId;
                 entity.SubCategoryId = item.SubCategoryId;
 

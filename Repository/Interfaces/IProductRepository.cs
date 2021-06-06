@@ -11,6 +11,6 @@ namespace TeclaT.Repository.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
         Task<List<VW_PRODUCTS>> GetAllAsyncProjected();
-        Task<List<ProductViewModel>> SearchProduct(SearchProductRequest request);
+        List<ProductViewModel> SearchProduct(SearchProductRequest request);
     }
 }
